@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from mainApp.models import Envio
+from mainApp.models import *
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -17,4 +17,9 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class EnvioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Envio
-        fields = ('fechaSolicitud', 'direccionEntrega', 'fechaEntregaMaxima', 'code')
+        fields = ()
+
+class PedidoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Pedido
+        fields = ('id', 'direccionEntrega', 'fechaEntregaMax', 'esPagoEnEfectivo', 'latitudGeografica', 'longitudGeografica')

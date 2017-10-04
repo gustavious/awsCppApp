@@ -3,9 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from mainApp.models import Envio
-from mainApp.serializers import UserSerializer, GroupSerializer, EnvioSerializer
-
+from mainApp.models import *
+from mainApp.serializers import *
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -26,3 +25,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 class EnvioViewSet(viewsets.ModelViewSet):
     queryset = Envio.objects.all()
     serializer_class = EnvioSerializer
+
+class PedidoViewSet(viewsets.ModelViewSet):
+    queryset = Pedido.objects.all()
+    serializer_class = PedidoSerializer
